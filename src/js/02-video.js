@@ -10,17 +10,9 @@ player.on('timeupdate', throttle(onSaveTimePlayer, 1000));
 function onSaveTimePlayer(evt) {
   const playerTime = evt.seconds;
   localStorage.setItem(STORAGE_KEY, playerTime);
-  console.log('played the video!');
 }
+const savedTimeVideo = localStorage.getItem(STORAGE_KEY);
 
-player
-  .setCurrentTime(localStorage.getItem(STORAGE_KEY))
-  .then(function (seconds) {})
-  .catch(function (error) {
-    switch (error.name) {
-      case 'RangeError':
-        break;
-      default:
-        break;
-    }
-  });
+if (savedTimeVideo) {
+  player.setCurrentTime(savedTimeVideo);
+}
