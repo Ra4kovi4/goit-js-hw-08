@@ -31,14 +31,14 @@ function populateTextarea() {
 
   if (savedMessage) {
     formData = JSON.parse(savedMessage);
-  }
-  if (formData.email === undefined) {
-    formData.email = '';
-  }
-  email.value = formData.email;
+    if (formData.email === undefined) {
+      formData.email = '';
+    }
+    email.value = formData.email;
 
-  if (formData.message === undefined) {
-    formData.message = '';
+    if (formData.message === undefined) {
+      formData.message = '';
+    }
+    message.value = formData.message;
   }
-  message.value = formData.message;
 }
